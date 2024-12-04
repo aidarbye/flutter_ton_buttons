@@ -119,7 +119,7 @@ class _TonConnectionPendingWState extends State<TonConnectionPendingWidget> {
               ? widget.description!
               : "Continue in ${widget.walletName}...",
           style: Theme.of(context).textTheme.titleSmall?.apply(
-              color: Theme.of(context).hintColor, fontWeightDelta: -100),
+              color: Theme.of(context).hintColor),
         ),
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           _openButton(),
