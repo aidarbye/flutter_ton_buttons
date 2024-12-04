@@ -42,7 +42,7 @@ class TonConnectButton extends StatelessWidget {
 
 
 class TonConnectionPendingWidget extends StatefulWidget {
-  final WalletApp wallet;
+  final String walletName;
   final String universalLink;
   final Function? onPop;
   final String? description;
@@ -53,7 +53,7 @@ class TonConnectionPendingWidget extends StatefulWidget {
   final String errorText;
 
   const TonConnectionPendingWidget(
-      {required this.wallet,
+      {required this.walletName,
         required this.universalLink,
         this.description,
         this.qrCode,
@@ -117,7 +117,7 @@ class _TonConnectionPendingWState extends State<TonConnectionPendingWidget> {
         Text(
           (widget.description != null)
               ? widget.description!
-              : "Continue in ${widget.wallet.name}...",
+              : "Continue in ${widget.walletName}...",
           style: Theme.of(context).textTheme.titleSmall?.apply(
               color: Theme.of(context).hintColor, fontWeightDelta: -100),
         ),
@@ -245,7 +245,7 @@ class _TonConnectionPendingWState extends State<TonConnectionPendingWidget> {
               widget.onPop!();
             },
           ),
-        Text(widget.wallet.name,
+        Text(widget.walletName,
             style: Theme.of(context).textTheme.titleMedium),
         IconButton(
           icon: CircleAvatar(
@@ -515,24 +515,25 @@ class _TonConnectTitle extends StatelessWidget {
 class TonSendTrxWidget extends StatelessWidget {
   final Color? bgColor;
   final Color? textColor;
-  final Function onOpen;
   final String title;
   final String text;
   final String openText;
   final Function? onClose;
+  final String? walletName;
 
   const TonSendTrxWidget(
-      {this.title = 'Confirm the transaction in Tonkeeper',
+      {this.title = 'Confirm the transaction in',
         this.text = 'It will only take a moment',
         this.openText = 'Open wallet',
         this.bgColor,
         this.textColor,
         this.onClose,
-        required this.onOpen,
+        this.walletName,
         super.key});
 
   @override
   Widget build(BuildContext context) {
+
     return SingleChildScrollView(
         child: Container(
             padding: EdgeInsets.all(8),
@@ -570,14 +571,15 @@ class TonSendTrxWidget extends StatelessWidget {
                           strokeWidth: 2,
                           color: Theme.of(context).highlightColor,
                         ))),
-                Text(title,
+                Text((walletName != null)? "${title} ${walletName}" : title,
                     style: Theme.of(context)
                         .textTheme
-                        .titleSmall
-                        ?.apply(color: Colors.white)),
-                Text(
+                        .titleSmall),
+               Text(
                   openText,
-                  style: TextStyle(color: Colors.white),
+                  style:  Theme.of(context)
+                    .textTheme
+                    .bodyMedium,
                 ),
                 const SizedBox(height: 16),
               ],
