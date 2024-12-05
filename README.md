@@ -21,3 +21,5 @@ Flutter widgets for Telegram TON HTTP connection flow. Here you can find:
      <br>
      <img src="https://github.com/aap17/flutter_ton_buttons/blob/images/flutter_ton_buttons/4.1.jpg" width="250"/>
      
+
+All widgets support `Dark` and `Light` themes.
