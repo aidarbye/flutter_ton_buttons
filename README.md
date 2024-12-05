@@ -1,15 +1,8 @@
 # flutter_ton_buttons
 
-Flutter TON connect buttons widgets
+Flutter widgets for Telegram TON HTTP connection flow. Here you can find:
+1. TON connect button ``
+    ![alt text](https://github.com/aap17/flutter_ton_buttons/blob/images/flutter_ton_buttons/2.1.jpg)
 
-## Getting Started
-
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/to/develop-plugins),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
+2. Wallet selection button `classname`
+    ![alt text](https://github.com/aap17/flutter_ton_buttons/blob/images/flutter_ton_buttons/2.1.jpg)
