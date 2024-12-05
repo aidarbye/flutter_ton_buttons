@@ -5,5 +5,6 @@ Flutter widgets for Telegram TON HTTP connection flow. Here you can find:
     ![alt text](https://github.com/aap17/flutter_ton_buttons/blob/images/flutter_ton_buttons/2.1.jpg)
 
 2. Wallet selection button `classname`
+     <br>
      <img src="https://github.com/aap17/flutter_ton_buttons/blob/images/flutter_ton_buttons/2.1.jpg" alt="selection" width="250"/>
    
