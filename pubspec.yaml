@@ -8,8 +8,8 @@ environment:
   flutter: '>=3.3.0'
 
 dependencies:
-  darttonconnect:
-    path: ./../dart_ton
+  darttonconnect_plus:
+    path: ./../dart_ton_plus
   tonutils: ^0.5.7
   flutter_svg: ^2.0.16
   url_launcher: ^6.3.1

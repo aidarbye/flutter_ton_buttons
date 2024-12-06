@@ -1,5 +1,5 @@
 import 'dart:ui';
-import 'package:darttonconnect/models/wallet_app.dart';
+import 'package:darttonconnect_plus/models/wallet_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/link.dart';
