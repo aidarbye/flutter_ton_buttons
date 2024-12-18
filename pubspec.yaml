@@ -9,8 +9,7 @@ environment:
 
 dependencies:
   darttonconnect_plus:
-    path: ./../dart_ton
-  tonutils: ^0.5.7
+    git: https://github.com/aap17/dart_ton_plus.git
   flutter_svg: ^2.0.16
   url_launcher: ^6.3.1
 
