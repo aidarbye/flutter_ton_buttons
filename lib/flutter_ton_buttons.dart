@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:darttonconnect_plus/models/wallet_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -480,7 +479,7 @@ class _TonOpenWalletState extends State<TonOpenWalletWidget> {
 }
 
 class _TonConnectTitle extends StatelessWidget {
-  const _TonConnectTitle({super.key});
+  const _TonConnectTitle();
 
   @override
   Widget build(BuildContext context) {

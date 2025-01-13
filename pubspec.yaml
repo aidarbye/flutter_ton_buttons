@@ -1,17 +1,17 @@
 name: flutter_ton_buttons
 description: "Flutter TON connect buttons"
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/aap17/flutter_ton_buttons
 
 environment:
-  sdk: '>=3.3.0'
-  flutter: '>=3.3.0'
+  sdk: '>=2.18.4 <4.0.0'
 
 dependencies:
   darttonconnect_plus: ^1.0.1
   flutter_svg: ^2.0.16
   url_launcher: ^6.3.1
-  material: ^1.0.0
+  flutter:
+    sdk: flutter
 
 flutter:
   assets:
