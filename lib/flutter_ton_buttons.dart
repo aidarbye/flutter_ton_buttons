@@ -13,15 +13,12 @@ class TonConnectButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    textStyle ??= Theme.of(context).textTheme.bodyMedium?.apply(color: Colors.white);
+    textStyle ??=
+        Theme.of(context).textTheme.bodyMedium?.apply(color: Colors.white);
     iconSize ??= 16;
 
-    final Widget svg = SvgPicture.asset(
-        'assets/images/ton_icon.svg',
-        height: iconSize,
-        width: iconSize,
-        package: 'flutter_ton_buttons'
-    );
+    final Widget svg = SvgPicture.asset('assets/images/ton_icon.svg',
+        height: iconSize, width: iconSize, package: 'flutter_ton_buttons');
     return Container(
         decoration: const BoxDecoration(
             color: Color.fromRGBO(36, 139, 218, 1),
@@ -39,7 +36,6 @@ class TonConnectButton extends StatelessWidget {
   }
 }
 
-
 class TonConnectionPendingWidget extends StatefulWidget {
   final String walletName;
   final String universalLink;
@@ -53,15 +49,15 @@ class TonConnectionPendingWidget extends StatefulWidget {
 
   const TonConnectionPendingWidget(
       {required this.walletName,
-        required this.universalLink,
-        this.description,
-        this.qrCode,
-        this.onPop,
-        this.retry = 'Retry',
-        this.qrCodeText = 'Show QR Code',
-        this.error = false,
-        this.errorText = 'Connection declined',
-        super.key});
+      required this.universalLink,
+      this.description,
+      this.qrCode,
+      this.onPop,
+      this.retry = 'Retry',
+      this.qrCodeText = 'Show QR Code',
+      this.error = false,
+      this.errorText = 'Connection declined',
+      super.key});
 
   @override
   State<StatefulWidget> createState() => _TonConnectionPendingWState();
@@ -110,15 +106,17 @@ class _TonConnectionPendingWState extends State<TonConnectionPendingWidget> {
             width: 50,
             child: Center(
                 child: CircularProgressIndicator(
-                  strokeWidth: 2,
-                  color: Theme.of(context).highlightColor,
-                ))),
+              strokeWidth: 2,
+              color: Theme.of(context).highlightColor,
+            ))),
         Text(
           (widget.description != null)
               ? widget.description!
               : "Continue in ${widget.walletName}...",
-          style: Theme.of(context).textTheme.titleSmall?.apply(
-              color: Theme.of(context).hintColor),
+          style: Theme.of(context)
+              .textTheme
+              .titleSmall
+              ?.apply(color: Theme.of(context).hintColor),
         ),
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           _openButton(),
@@ -139,15 +137,15 @@ class _TonConnectionPendingWState extends State<TonConnectionPendingWidget> {
         Container(
             margin: const EdgeInsets.only(bottom: 8),
             decoration:
-            const BoxDecoration(shape: BoxShape.circle, color: Colors.red),
+                const BoxDecoration(shape: BoxShape.circle, color: Colors.red),
             height: 40,
             width: 40,
             child: const Center(
                 child: Icon(
-                  Icons.close,
-                  size: 25,
-                  color: Colors.white,
-                ))),
+              Icons.close,
+              size: 25,
+              color: Colors.white,
+            ))),
         Text(
           widget.errorText,
           style: Theme.of(context).textTheme.titleSmall?.apply(
@@ -244,8 +242,7 @@ class _TonConnectionPendingWState extends State<TonConnectionPendingWidget> {
               widget.onPop!();
             },
           ),
-        Text(widget.walletName,
-            style: Theme.of(context).textTheme.titleMedium),
+        Text(widget.walletName, style: Theme.of(context).textTheme.titleMedium),
         IconButton(
           icon: CircleAvatar(
             backgroundColor: Theme.of(context).highlightColor,
@@ -268,26 +265,26 @@ class TonOpenWalletWidget extends StatefulWidget {
   final List<WalletApp> wallets;
   final Function onTap;
   final WalletApp? telegramWallet;
-  final Widget? qrCode;
+  // final Widget? qrCode;
   final String title;
   final String description;
 
   const TonOpenWalletWidget(
       {required this.wallets,
-        required this.onTap,
-        this.telegramWallet,
-        this.title = 'Connect your wallet',
-        this.description =
-        'Open Wallet on Telegram or select your wallet to connect',
-        this.qrCode,
-        super.key});
+      required this.onTap,
+      this.telegramWallet,
+      this.title = 'Connect your wallet',
+      this.description =
+          'Open Wallet on Telegram or select your wallet to connect',
+      // this.qrCode,
+      super.key});
 
   @override
   State<StatefulWidget> createState() => _TonOpenWalletState();
 }
 
 class _TonOpenWalletState extends State<TonOpenWalletWidget> {
-  bool showQR = false;
+  // bool showQR = false;
 
   @override
   Widget build(BuildContext context) {
@@ -298,22 +295,22 @@ class _TonOpenWalletState extends State<TonOpenWalletWidget> {
             decoration: BoxDecoration(
                 color: Theme.of(context).dialogBackgroundColor,
                 borderRadius: const BorderRadius.all(Radius.circular(12))),
-            child: showQR ? _qrContainer() : _initial()),
+            child: _initial()),
         _TonConnectTitle()
       ]),
     );
   }
 
-  Widget _qrContainer() {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _title(),
-        Center(child: widget.qrCode!),
-      ],
-    );
-  }
+  // Widget _qrContainer() {
+  //   return Column(
+  //     mainAxisSize: MainAxisSize.min,
+  //     crossAxisAlignment: CrossAxisAlignment.start,
+  //     children: [
+  //       _title(),
+  //       Center(child: widget.qrCode!),
+  //     ],
+  //   );
+  // }
 
   Widget _initial() {
     return Column(
@@ -388,7 +385,8 @@ class _TonOpenWalletState extends State<TonOpenWalletWidget> {
         SizedBox(
             height: 100,
             child: ListView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 itemCount: widget.wallets.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
@@ -439,27 +437,12 @@ class _TonOpenWalletState extends State<TonOpenWalletWidget> {
 
   Widget _title() {
     return Row(
-      mainAxisAlignment: (widget.qrCode != null)
-          ? MainAxisAlignment.spaceBetween
-          : MainAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.max,
       children: [
-        if (widget.qrCode != null)
-          IconButton(
-            icon: CircleAvatar(
-              backgroundColor: Theme.of(context).highlightColor,
-              radius: 12,
-              child: Icon(
-                showQR ? Icons.arrow_back : Icons.qr_code,
-                size: 14,
-              ),
-            ),
-            onPressed: () {
-              setState(() {
-                showQR = !showQR;
-              });
-            },
-          ),
+        const Spacer(flex: 2),
         Text(widget.title, style: Theme.of(context).textTheme.titleMedium),
+        const Spacer(),
         IconButton(
           icon: CircleAvatar(
             backgroundColor: Theme.of(context).highlightColor,
@@ -488,7 +471,7 @@ class _TonConnectTitle extends StatelessWidget {
       child: Row(children: [
         Container(
             decoration:
-            const BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
+                const BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
             padding: const EdgeInsets.all(6),
             child: SvgPicture.asset(
               'assets/images/ton_icon.svg',
@@ -510,7 +493,6 @@ class _TonConnectTitle extends StatelessWidget {
   }
 }
 
-
 class TonSendTrxWidget extends StatelessWidget {
   final Color? bgColor;
   final Color? textColor;
@@ -522,17 +504,16 @@ class TonSendTrxWidget extends StatelessWidget {
 
   const TonSendTrxWidget(
       {this.title = 'Confirm the transaction in',
-        this.text = 'It will only take a moment',
-        this.openText = 'Open wallet',
-        this.bgColor,
-        this.textColor,
-        this.onClose,
-        this.walletName,
-        super.key});
+      this.text = 'It will only take a moment',
+      this.openText = 'Open wallet',
+      this.bgColor,
+      this.textColor,
+      this.onClose,
+      this.walletName,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
-
     return SingleChildScrollView(
         child: Container(
             padding: EdgeInsets.all(8),
@@ -567,22 +548,17 @@ class TonSendTrxWidget extends StatelessWidget {
                     width: 50,
                     child: Center(
                         child: CircularProgressIndicator(
-                          strokeWidth: 2,
-                          color: Theme.of(context).highlightColor,
-                        ))),
-                Text((walletName != null)? "${title} ${walletName}" : title,
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall),
-               Text(
+                      strokeWidth: 2,
+                      color: Theme.of(context).highlightColor,
+                    ))),
+                Text((walletName != null) ? "${title} ${walletName}" : title,
+                    style: Theme.of(context).textTheme.titleSmall),
+                Text(
                   openText,
-                  style:  Theme.of(context)
-                    .textTheme
-                    .bodyMedium,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 const SizedBox(height: 16),
               ],
             )));
   }
-
 }
